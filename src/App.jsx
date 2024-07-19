@@ -7,23 +7,24 @@ import Login from "./pages/login"
 const App = () => {
   const router = createBrowserRouter([
     {
-      path:"/",
-      element:<Routerlayout/>,
-      children:[
+      path: "/",
+      element: <Routerlayout />,
+      children: [
         {
           index: true,
-          element:<Home/>
+          element: <Login />
         },
         {
-          path:"/login",
-          element:<Login/>
+          path: "/home",
+          element: <Home />
         }
       ]
     }
   ])
+
   return (
     <userContext.Provider value={null}>
-      <RouterProvider router={router}/>
+      <RouterProvider router={router} />
     </userContext.Provider>
   )
 }
