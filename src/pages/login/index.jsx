@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 const Login = () => {
   const [username, setUsername] = useState('')
@@ -46,7 +46,6 @@ const Login = () => {
     users.push(newUser)
     localStorage.setItem('users', JSON.stringify(users))
 
-    // Saqlangan foydalanuvchilarni console.log orqali chiqarish
     console.log(users)
 
     setUsername('')
@@ -56,13 +55,12 @@ const Login = () => {
     setUsernameError('')
     setPasswordError('')
 
-    // Home sahifasiga o'tish
     navigate('/home')
   }
 
   return (
     <div className='h-[100vh] flex justify-center items-center'>
-      <form onSubmit={handleSubmit} className='backdrop-blur-lg bg-[#33333322] py-10 px-12 rounded-2xl flex flex-col gap-3'>
+      <form onSubmit={handleSubmit} className='backdrop-blur-lg bg-[#33333322] py-10 px-16 max-md:px-12 rounded-2xl flex flex-col gap-3'>
         <div>
           <input
             type="text"
@@ -96,7 +94,8 @@ const Login = () => {
           {passwordError && <p className='text-red-500'>{passwordError}</p>}
         </div>
         {error && <p className='text-red-500'>{error}</p>}
-        <button type='submit' className='bg-green-600 text-white py-1 w-full mt-3 rounded-md'>Yuborish</button>
+        <p className='text-gray-600'>Allaqachon akka... <ins><NavLink to={"/sign"}>sign in</NavLink></ins>?</p>
+        <button type='submit' className='bg-green-600 text-white py-1 w-full rounded-md'>Yuborish</button>
       </form>
     </div>
   )

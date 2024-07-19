@@ -3,6 +3,7 @@ import { userContext } from "../src/context"
 import Routerlayout from "./layout"
 import Home from "./pages/home"
 import Login from "./pages/login"
+import Sign from "./pages/Sign"
 
 const App = () => {
   const router = createBrowserRouter([
@@ -13,6 +14,10 @@ const App = () => {
         {
           index: true,
           element: <Login />
+        },
+        {
+          path:"/sign",
+          element:<Sign />
         },
         {
           path: "/home",
